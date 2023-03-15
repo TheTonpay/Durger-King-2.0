@@ -46,6 +46,10 @@ export default function CheckoutPage() {
     }
   );
 
+  useEffect(() => {
+    stopListening();
+  }, []);
+
   return (
     <>
       <Head>
