@@ -124,7 +124,7 @@ export default function CheckoutPage() {
           if (!sender || !store || !wallet) return;
 
           await store.sendRequestPurchase(sender, {
-            value: toNano("0.02"),
+            value: toNano("0.03"),
             invoice_id: Date.now().toString(),
             amount: toNano(
               cart
