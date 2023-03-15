@@ -110,6 +110,11 @@ export default function Home() {
                       cart.find((p: any) => p.name === product.name)?.quantity
                     }
                     color="primary"
+                    sx={{
+                      "& .MuiBadge-badge": {
+                        color: "white",
+                      },
+                    }}
                   >
                     <Card>
                       <CardMedia
@@ -214,7 +219,14 @@ export default function Home() {
             console.log(cart);
           }}
         >
-          Checkout
+          Checkout - {cart.length} items for{" "}
+          {Math.round(
+            cart.reduce(
+              (acc: number, p: any) => acc + p.price * p.quantity,
+              0
+            ) * 100
+          ) / 100}
+          TON
         </Button>
       </Box>
     </>
