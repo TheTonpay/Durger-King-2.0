@@ -81,22 +81,22 @@ export default function CheckoutPage() {
             </Box>
           </Box>
         ))}
-
-        <Button
-          variant="contained"
-          sx={{
-            position: "absolute",
-            width: "auto",
-            bottom: theme.spacing(1),
-            left: theme.spacing(1),
-            right: theme.spacing(1),
-            height: theme.spacing(6),
-            color: "white",
-          }}
-        >
-          Confirm order
-        </Button>
       </Box>
+
+      <Button
+        variant="contained"
+        sx={{
+          position: "fixed",
+          width: "auto",
+          bottom: theme.spacing(1),
+          left: theme.spacing(1),
+          right: theme.spacing(1),
+          height: theme.spacing(6),
+          color: "white",
+        }}
+      >
+        Confirm order
+      </Button>
     </>
   );
 }
