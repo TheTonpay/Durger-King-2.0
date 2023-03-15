@@ -76,113 +76,72 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Box
-        sx={{
-          width: "100%",
-          height: "100%",
-        }}
-      >
-        <AppBar
-          sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
-          color="primary"
-          enableColorOnDark
-        >
-          <Toolbar>
-            <Typography
-              variant="h5"
-              sx={{ flexGrow: 1, fontWeight: "bold", color: "white" }}
-            >
-              Durger King 2.0
-            </Typography>
+      <Box p={2} pb={theme.spacing(8)}>
+        <Toolbar />
+        <Grid container spacing={2}>
+          {products.map((product) => (
+            <>
+              <Grid item xs={6} sm={6} md={2} lg={2} key={product.name}>
+                <Badge
+                  badgeContent={
+                    cart.find((p: any) => p.name === product.name)?.quantity
+                  }
+                  color="primary"
+                  sx={{
+                    "& .MuiBadge-badge": {
+                      color: "white",
+                    },
+                  }}
+                >
+                  <Card>
+                    <CardMedia
+                      component="img"
+                      image={product.image}
+                      sx={{
+                        p: 3,
+                      }}
+                    />
 
-            <TonConnectButton />
-          </Toolbar>
-        </AppBar>
-
-        <Box p={2} pb={theme.spacing(8)}>
-          <Toolbar />
-          <Grid container spacing={2}>
-            {products.map((product) => (
-              <>
-                <Grid item xs={6} sm={6} md={2} lg={2} key={product.name}>
-                  <Badge
-                    badgeContent={
-                      cart.find((p: any) => p.name === product.name)?.quantity
-                    }
-                    color="primary"
-                    sx={{
-                      "& .MuiBadge-badge": {
-                        color: "white",
-                      },
-                    }}
-                  >
-                    <Card>
-                      <CardMedia
-                        component="img"
-                        image={product.image}
+                    <CardContent
+                      sx={{
+                        py: "8px !important",
+                      }}
+                    >
+                      <Typography
+                        variant="body1"
                         sx={{
-                          p: 3,
-                        }}
-                      />
-
-                      <CardContent
-                        sx={{
-                          py: "8px !important",
+                          verticalAlign: "middle",
                         }}
                       >
-                        <Typography
-                          variant="body1"
-                          sx={{
-                            verticalAlign: "middle",
-                          }}
-                        >
-                          {product.name} - <b>{product.price}</b>{" "}
-                          <TonLogo
-                            width={theme.spacing(2)}
-                            height={theme.spacing(2)}
-                            fill={"#0088CC"}
-                          />
-                        </Typography>
-                      </CardContent>
+                        {product.name} - <b>{product.price}</b>{" "}
+                        <TonLogo
+                          width={theme.spacing(2)}
+                          height={theme.spacing(2)}
+                          fill={"#0088CC"}
+                        />
+                      </Typography>
+                    </CardContent>
 
-                      <CardActions>
-                        {cart.find((p: any) => p.name === product.name) ? (
-                          <>
-                            <Button
-                              onClick={() =>
-                                setCart({
-                                  type: "REMOVE_PRODUCT",
-                                  name: product.name,
-                                })
-                              }
-                              variant="outlined"
-                              sx={{
-                                height: theme.spacing(4),
-                                width: "50%",
-                                fontWeight: "bold",
-                              }}
-                            >
-                              -
-                            </Button>
+                    <CardActions>
+                      {cart.find((p: any) => p.name === product.name) ? (
+                        <>
+                          <Button
+                            onClick={() =>
+                              setCart({
+                                type: "REMOVE_PRODUCT",
+                                name: product.name,
+                              })
+                            }
+                            variant="outlined"
+                            sx={{
+                              height: theme.spacing(4),
+                              width: "50%",
+                              fontWeight: "bold",
+                            }}
+                          >
+                            -
+                          </Button>
 
-                            <Button
-                              onClick={() =>
-                                setCart({
-                                  type: "ADD_PRODUCT",
-                                  product: product,
-                                })
-                              }
-                              variant="outlined"
-                              sx={{
-                                height: theme.spacing(4),
-                                width: "50%",
-                                fontWeight: "bold",
-                              }}
-                            >
-                              +
-                            </Button>
-                          </>
-                        ) : (
                           <Button
                             onClick={() =>
                               setCart({
@@ -191,49 +150,66 @@ export default function Home() {
                               })
                             }
                             variant="outlined"
+                            sx={{
+                              height: theme.spacing(4),
+                              width: "50%",
+                              fontWeight: "bold",
+                            }}
                           >
-                            Add to cart
+                            +
                           </Button>
-                        )}
-                      </CardActions>
-                    </Card>
-                  </Badge>
-                </Grid>
-              </>
-            ))}
-          </Grid>
-        </Box>
-
-        {cart.length > 0 && (
-          <Button
-            variant="contained"
-            sx={{
-              position: "fixed",
-              right: theme.spacing(1),
-              left: theme.spacing(1),
-              height: theme.spacing(6),
-              width: "auto",
-              color: "white",
-              bottom: theme.spacing(1),
-            }}
-            onClick={() => {
-              console.log(cart);
-            }}
-          >
-            Checkout - {cart.length} item
-            {cart.reduce((acc: number, p: any) => acc + p.quantity, 0) > 1 &&
-              "s"}{" "}
-            for{" "}
-            {Math.round(
-              cart.reduce(
-                (acc: number, p: any) => acc + p.price * p.quantity,
-                0
-              ) * 100
-            ) / 100}
-            TON
-          </Button>
-        )}
+                        </>
+                      ) : (
+                        <Button
+                          onClick={() =>
+                            setCart({
+                              type: "ADD_PRODUCT",
+                              product: product,
+                            })
+                          }
+                          variant="outlined"
+                        >
+                          Add to cart
+                        </Button>
+                      )}
+                    </CardActions>
+                  </Card>
+                </Badge>
+              </Grid>
+            </>
+          ))}
+        </Grid>
       </Box>
+
+      {cart.length > 0 && (
+        <Button
+          variant="contained"
+          sx={{
+            position: "fixed",
+            right: theme.spacing(1),
+            left: theme.spacing(1),
+            height: theme.spacing(6),
+            width: "auto",
+            color: "white",
+            bottom: theme.spacing(7),
+          }}
+          onClick={() => {
+            localStorage.setItem("cart", JSON.stringify(cart));
+          }}
+        >
+          Checkout - {cart.length} item
+          {cart.reduce((acc: number, p: any) => acc + p.quantity, 0) > 1 &&
+            "s"}{" "}
+          for{" "}
+          {Math.round(
+            cart.reduce(
+              (acc: number, p: any) => acc + p.price * p.quantity,
+              0
+            ) * 100
+          ) / 100}
+          TON
+        </Button>
+      )}
     </>
   );
 }
