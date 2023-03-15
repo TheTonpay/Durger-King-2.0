@@ -99,7 +99,7 @@ export default function Home() {
           </Toolbar>
         </AppBar>
 
-        <Box p={2} pb={theme.spacing(14)}>
+        <Box p={2} pb={theme.spacing(8)}>
           <Toolbar />
           <Grid container spacing={2}>
             {products.map((product) => (
@@ -208,7 +208,7 @@ export default function Home() {
             height: theme.spacing(6),
             width: "auto",
             color: "white",
-            bottom: theme.spacing(7),
+            bottom: theme.spacing(1),
           }}
           onClick={() => {
             console.log(cart);
