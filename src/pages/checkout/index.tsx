@@ -12,10 +12,19 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Image from "next/image";
 import TonLogo from "@/TonLogo";
 import { useRouter } from "next/router";
+import useSender from "@/ton/hooks/useSender";
+import { useStore } from "@/ton/hooks/useStore";
+import { toNano } from "ton-core";
+import { useTonWallet } from "@tonconnect/ui-react";
+import { useAccountEventStream } from "@/ton/hooks/useAccountEventStream";
 
 export default function CheckoutPage() {
   const theme = useTheme();
   const router = useRouter();
+  const { sender } = useSender();
+  const storeAddress = "EQBoUTnpsxUNX_6RZTy2dgDFimJUL8cuIZwQjHb5OFlwh8pm"; // hardcoded merchant's store address
+  const store = useStore(storeAddress);
+  const wallet = useTonWallet();
 
   const [cart, setCart] = useState<any[]>([]);
 
@@ -24,6 +33,18 @@ export default function CheckoutPage() {
 
     setCart(JSON.parse(localStorage.getItem("cart") || "[]"));
   }, [localStorage]);
+
+  const { startListening, stopListening } = useAccountEventStream(
+    storeAddress,
+    (event) => {
+      const deployEvent = event.actions.find(
+        (action: any) => action.type == "ContractDeploy"
+      );
+      if (deployEvent) {
+        window.location.href = `https://beta.pay.thetonpay.app/i/${deployEvent.ContractDeploy.address}`;
+      }
+    }
+  );
 
   return (
     <>
@@ -85,6 +106,7 @@ export default function CheckoutPage() {
 
       <Button
         variant="contained"
+        disabled={!sender || !store || !wallet}
         sx={{
           position: "fixed",
           width: "auto",
@@ -93,6 +115,23 @@ export default function CheckoutPage() {
           right: theme.spacing(1),
           height: theme.spacing(6),
           color: "white",
+        }}
+        onClick={async () => {
+          if (!sender || !store || !wallet) return;
+
+          await store.sendRequestPurchase(sender, {
+            value: toNano("0.02"),
+            invoice_id: Date.now().toString(),
+            amount: toNano(
+              cart
+                .reduce((acc, product) => {
+                  return acc + product.price * product.quantity;
+                }, 0)
+                .toString()
+            ),
+          });
+
+          startListening();
         }}
       >
         Confirm order
