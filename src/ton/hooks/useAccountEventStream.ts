@@ -16,7 +16,7 @@ export function useAccountEventStream(
     if (!isAddress(address)) return [];
 
     const response = await fetch(
-      `https://testnet.tonapi.io/v1/event/getAccountEvents?account=${address}&limit=10`,
+      `https://testnet.tonapi.io/v1/event/getAccountEvents?account=${address}&limit=50`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -40,7 +40,11 @@ export function useAccountEventStream(
       fetchEvents().then((events) => {
         const newEvents = events.filter(
           (event: any) =>
-            !originalEvents.some((e: any) => e.event_id === event.event_id)
+            !originalEvents.some(
+              (e: any) =>
+                e.event_id === event.event_id &&
+                e.actions.length === event.actions.length
+            )
         );
         newEvents.forEach((event: any) => onEvent(event));
         setOriginalEvents(events);
