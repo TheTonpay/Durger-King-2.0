@@ -19,9 +19,11 @@ import { TonConnectButton } from "@tonconnect/ui-react";
 import { products } from "@/products";
 import TonLogo from "@/TonLogo";
 import { useReducer } from "react";
+import { useRouter } from "next/router";
 
 export default function Home() {
   const theme = useTheme();
+  const router = useRouter();
 
   type Action =
     | { type: "ADD_PRODUCT"; product: any }
@@ -191,16 +193,15 @@ export default function Home() {
             height: theme.spacing(6),
             width: "auto",
             color: "white",
-            bottom: theme.spacing(7),
+            bottom: theme.spacing(1),
           }}
           onClick={() => {
             localStorage.setItem("cart", JSON.stringify(cart));
+            router.push("/checkout");
           }}
         >
           Checkout - {cart.length} item
-          {cart.reduce((acc: number, p: any) => acc + p.quantity, 0) > 1 &&
-            "s"}{" "}
-          for{" "}
+          {cart.length > 1 ? "s" : ""} for{" "}
           {Math.round(
             cart.reduce(
               (acc: number, p: any) => acc + p.price * p.quantity,
