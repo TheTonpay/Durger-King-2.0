@@ -204,30 +204,35 @@ export default function Home() {
           </Grid>
         </Box>
 
-        <Button
-          variant="contained"
-          sx={{
-            position: "fixed",
-            right: theme.spacing(1),
-            left: theme.spacing(1),
-            height: theme.spacing(6),
-            width: "auto",
-            color: "white",
-            bottom: theme.spacing(1),
-          }}
-          onClick={() => {
-            console.log(cart);
-          }}
-        >
-          Checkout - {cart.length} items for{" "}
-          {Math.round(
-            cart.reduce(
-              (acc: number, p: any) => acc + p.price * p.quantity,
-              0
-            ) * 100
-          ) / 100}
-          TON
-        </Button>
+        {cart.length > 0 && (
+          <Button
+            variant="contained"
+            sx={{
+              position: "fixed",
+              right: theme.spacing(1),
+              left: theme.spacing(1),
+              height: theme.spacing(6),
+              width: "auto",
+              color: "white",
+              bottom: theme.spacing(1),
+            }}
+            onClick={() => {
+              console.log(cart);
+            }}
+          >
+            Checkout - {cart.length} item
+            {cart.reduce((acc: number, p: any) => acc + p.quantity, 0) > 1 &&
+              "s"}{" "}
+            for{" "}
+            {Math.round(
+              cart.reduce(
+                (acc: number, p: any) => acc + p.price * p.quantity,
+                0
+              ) * 100
+            ) / 100}
+            TON
+          </Button>
+        )}
       </Box>
     </>
   );
