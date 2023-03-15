@@ -29,10 +29,10 @@ export default function CheckoutPage() {
   const [cart, setCart] = useState<any[]>([]);
 
   useEffect(() => {
-    if (!localStorage) return;
+    if (typeof window === "undefined") return;
 
     setCart(JSON.parse(localStorage.getItem("cart") || "[]"));
-  }, [localStorage]);
+  }, []);
 
   const { startListening, stopListening } = useAccountEventStream(
     storeAddress,

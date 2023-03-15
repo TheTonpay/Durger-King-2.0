@@ -14,7 +14,6 @@ import { TonConnectButton, TonConnectUIProvider } from "@tonconnect/ui-react";
 import type { AppProps } from "next/app";
 
 export default function App({ Component, pageProps }: AppProps) {
-  const theme = useTheme();
   // temp manifest for demo purposes
   const manifestUrl =
     "https://raw.githubusercontent.com/TheTonpay/Durger-King-2.0/main/tonconnect-manifest.json";

@@ -1,21 +1,17 @@
 import Head from "next/head";
 import {
-  AppBar,
   Badge,
   Box,
   Button,
   Card,
-  CardActionArea,
   CardActions,
   CardContent,
-  CardHeader,
   CardMedia,
   Grid,
   Toolbar,
   Typography,
   useTheme,
 } from "@mui/material";
-import { TonConnectButton } from "@tonconnect/ui-react";
 import { products } from "@/products";
 import TonLogo from "@/TonLogo";
 import { useReducer } from "react";
@@ -196,8 +192,10 @@ export default function Home() {
             bottom: theme.spacing(1),
           }}
           onClick={() => {
-            localStorage.setItem("cart", JSON.stringify(cart));
-            router.push("/checkout");
+            if (typeof window !== "undefined") {
+              localStorage.setItem("cart", JSON.stringify(cart));
+              router.push("/checkout");
+            }
           }}
         >
           Checkout - {cart.length} item
