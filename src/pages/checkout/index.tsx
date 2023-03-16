@@ -117,8 +117,10 @@ export default function CheckoutPage() {
           bottom: theme.spacing(1),
           left: theme.spacing(1),
           right: theme.spacing(1),
-          height: theme.spacing(6),
+          height: "auto",
           color: "white",
+          display: "flex",
+          flexDirection: "column",
         }}
         onClick={async () => {
           if (!sender || !store || !wallet) return;
@@ -138,7 +140,10 @@ export default function CheckoutPage() {
           startListening();
         }}
       >
-        Confirm order
+        <Typography>Confirm order</Typography>
+        <Typography variant="body2">
+          You'll be redirected to the payment shortly
+        </Typography>
       </Button>
     </>
   );
