@@ -31,7 +31,7 @@ export const products = [
   },
   {
     name: "Popcorn",
-    price: 0.8,
+    price: 2,
     image: "Popcorn_148.png",
   },
   {
