@@ -12,17 +12,20 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Image from "next/image";
 import TonLogo from "@/TonLogo";
 import { useRouter } from "next/router";
-import useSender from "@/ton/hooks/useSender";
-import { useStore } from "@/ton/hooks/useStore";
 import { toNano } from "ton-core";
 import { useTonWallet } from "@tonconnect/ui-react";
-import { useAccountEventStream } from "@/ton/hooks/useAccountEventStream";
+import {
+  buildRequestPurchaseMessage,
+  precalculateInvoiceAddress,
+} from "@tonpay/core";
+import { toUserFriendlyAddress } from "@tonconnect/sdk";
+import { useSender, useStore } from "@tonpay/react";
 
 export default function CheckoutPage() {
   const theme = useTheme();
   const router = useRouter();
   const { sender } = useSender();
-  const storeAddress = "EQBoUTnpsxUNX_6RZTy2dgDFimJUL8cuIZwQjHb5OFlwh8pm"; // hardcoded merchant's store address
+  const storeAddress = "EQD4CTLrsCUn2CFQlIhJtRZl7qJnIc76VW3TbDzVAh3ish-j"; // hardcoded merchant's store address
   const store = useStore(storeAddress);
   const wallet = useTonWallet();
 
@@ -32,22 +35,6 @@ export default function CheckoutPage() {
     if (typeof window === "undefined") return;
 
     setCart(JSON.parse(localStorage.getItem("cart") || "[]"));
-  }, []);
-
-  const { startListening, stopListening } = useAccountEventStream(
-    storeAddress,
-    (event) => {
-      const deployEvent = event.actions.find(
-        (action: any) => action.type == "ContractDeploy"
-      );
-      if (deployEvent) {
-        window.location.href = `https://beta.pay.thetonpay.app/i/${deployEvent.ContractDeploy.address}`;
-      }
-    }
-  );
-
-  useEffect(() => {
-    stopListening();
   }, []);
 
   return (
@@ -117,7 +104,7 @@ export default function CheckoutPage() {
           bottom: theme.spacing(1),
           left: theme.spacing(1),
           right: theme.spacing(1),
-          height: "auto",
+          height: theme.spacing(6),
           color: "white",
           display: "flex",
           flexDirection: "column",
@@ -125,25 +112,36 @@ export default function CheckoutPage() {
         onClick={async () => {
           if (!sender || !store || !wallet) return;
 
+          const paymentAmount = cart.reduce((acc, product) => {
+            return acc + product.price * product.quantity;
+          }, 0);
+
+          const invoiceId = Date.now().toString();
           await store.sendRequestPurchase(sender, {
-            value: toNano("0.03"),
-            invoice_id: Date.now().toString(),
-            amount: toNano(
-              cart
-                .reduce((acc, product) => {
-                  return acc + product.price * product.quantity;
-                }, 0)
-                .toString()
+            value: toNano((paymentAmount + 0.04).toString()),
+            message: buildRequestPurchaseMessage(
+              invoiceId,
+              toNano(paymentAmount.toString())
             ),
           });
 
-          startListening();
+          setTimeout(() => {
+            window.location.href = `https://dev.pay.thetonpay.app/i/${precalculateInvoiceAddress(
+              storeAddress,
+              "EQBVQSJ0QRf0QU8CyjRvwjJOKrObUCPCE2VkbVPRfyCaV1NY",
+              true,
+              toUserFriendlyAddress(wallet.account.address),
+              invoiceId,
+              Number(toNano(paymentAmount.toString()))
+            )}`;
+          }, 4000);
         }}
       >
-        <Typography>Confirm order</Typography>
-        <Typography variant="body2">
-          You'll be redirected to the payment shortly
-        </Typography>
+        Confirm and pay{" "}
+        {cart.reduce((acc, product) => {
+          return acc + product.price * product.quantity;
+        }, 0)}{" "}
+        TON
       </Button>
     </>
   );

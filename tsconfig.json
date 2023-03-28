@@ -26,6 +26,6 @@
     "**/*.js",
     "__tests__/*.ts",
     "__tests__/*.tsx"
-  ],
+, "../tonpay-react/src/hooks/useTonClient.ts"  ],
   "exclude": ["node_modules"]
 }

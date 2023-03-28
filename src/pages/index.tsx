@@ -205,7 +205,7 @@ export default function Home() {
               (acc: number, p: any) => acc + p.price * p.quantity,
               0
             ) * 100
-          ) / 100}
+          ) / 100}{" "}
           TON
         </Button>
       )}
