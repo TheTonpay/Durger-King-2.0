@@ -13,7 +13,7 @@ import Image from "next/image";
 import TonLogo from "@/TonLogo";
 import { useRouter } from "next/router";
 import { toNano } from "ton-core";
-import { useTonWallet } from "@tonconnect/ui-react";
+import { useTonConnectUI, useTonWallet } from "@tonconnect/ui-react";
 import {
   buildRequestPurchaseMessage,
   precalculateInvoiceAddress,
@@ -22,9 +22,10 @@ import { toUserFriendlyAddress } from "@tonconnect/sdk";
 import { useSender, useStore } from "@tonpay/react";
 
 export default function CheckoutPage() {
+  const [tonConnectUI] = useTonConnectUI();
   const theme = useTheme();
   const router = useRouter();
-  const { sender } = useSender();
+  const { sender } = useSender(tonConnectUI);
   const storeAddress = "EQD4CTLrsCUn2CFQlIhJtRZl7qJnIc76VW3TbDzVAh3ish-j"; // hardcoded merchant's store address
   const store = useStore(storeAddress);
   const wallet = useTonWallet();
@@ -134,7 +135,7 @@ export default function CheckoutPage() {
               invoiceId,
               Number(toNano(paymentAmount.toString()))
             )}`;
-          }, 4000);
+          }, 10000);
         }}
       >
         Confirm and pay{" "}
