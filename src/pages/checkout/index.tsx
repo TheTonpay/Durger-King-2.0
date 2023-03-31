@@ -12,23 +12,17 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Image from "next/image";
 import TonLogo from "@/TonLogo";
 import { useRouter } from "next/router";
-import { toNano } from "ton-core";
 import { useTonConnectUI, useTonWallet } from "@tonconnect/ui-react";
-import {
-  buildRequestPurchaseMessage,
-  precalculateInvoiceAddress,
-} from "@tonpay/core";
-import { toUserFriendlyAddress } from "@tonconnect/sdk";
-import { useSender, useStore } from "@tonpay/react";
+import { useSender } from "@tonpay/react";
+import { Tonpay } from "@tonpay/sdk";
 
 export default function CheckoutPage() {
   const [tonConnectUI] = useTonConnectUI();
   const theme = useTheme();
   const router = useRouter();
   const { sender } = useSender(tonConnectUI);
-  const storeAddress = "EQD4CTLrsCUn2CFQlIhJtRZl7qJnIc76VW3TbDzVAh3ish-j"; // hardcoded merchant's store address
-  const store = useStore(storeAddress);
   const wallet = useTonWallet();
+  const [tonpay, setTonpay] = useState<Tonpay>();
 
   const [cart, setCart] = useState<any[]>([]);
 
@@ -37,6 +31,13 @@ export default function CheckoutPage() {
 
     setCart(JSON.parse(localStorage.getItem("cart") || "[]"));
   }, []);
+
+  useEffect(() => {
+    if (!sender) return;
+    Tonpay.create("testnet", sender).then((tonpay: Tonpay) => {
+      setTonpay(tonpay);
+    });
+  }, [sender]);
 
   return (
     <>
@@ -98,7 +99,7 @@ export default function CheckoutPage() {
 
       <Button
         variant="contained"
-        disabled={!sender || !store || !wallet}
+        disabled={!sender || !tonpay || !wallet}
         sx={{
           position: "fixed",
           width: "auto",
@@ -111,30 +112,22 @@ export default function CheckoutPage() {
           flexDirection: "column",
         }}
         onClick={async () => {
-          if (!sender || !store || !wallet) return;
+          if (!sender || !tonpay || !wallet) return;
 
           const paymentAmount = cart.reduce((acc, product) => {
             return acc + product.price * product.quantity;
           }, 0);
-
           const invoiceId = Date.now().toString();
-          await store.sendRequestPurchase(sender, {
-            value: toNano((paymentAmount + 0.04).toString()),
-            message: buildRequestPurchaseMessage(
-              invoiceId,
-              toNano(paymentAmount.toString())
-            ),
-          });
 
+          const store = tonpay.getStore(
+            "EQD4CTLrsCUn2CFQlIhJtRZl7qJnIc76VW3TbDzVAh3ish-j"
+          );
+          const invoiceAddress = await store.requestPurchase({
+            invoiceId,
+            amount: paymentAmount,
+          });
           setTimeout(() => {
-            window.location.href = `https://dev.pay.thetonpay.app/i/${precalculateInvoiceAddress(
-              storeAddress,
-              "EQBVQSJ0QRf0QU8CyjRvwjJOKrObUCPCE2VkbVPRfyCaV1NY",
-              true,
-              toUserFriendlyAddress(wallet.account.address),
-              invoiceId,
-              Number(toNano(paymentAmount.toString()))
-            )}`;
+            window.location.href = `https://beta.pay.thetonpay.app/i/${invoiceAddress}`;
           }, 10000);
         }}
       >

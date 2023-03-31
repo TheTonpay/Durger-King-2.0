@@ -1450,7 +1450,7 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@orbs-network/ton-access@^2.2.2":
+"@orbs-network/ton-access@^2.2.2", "@orbs-network/ton-access@^2.3.1":
   version "2.3.1"
   resolved "https://registry.npmjs.org/@orbs-network/ton-access/-/ton-access-2.3.1.tgz"
   integrity sha512-FOBMzK1j3y/EUy5FkpNf5AUT9wvpkLrigZln/ICITl6FE3DBas1jujGIm7eLjvn53szIAqB7nQNqMGykNjdBGA==
@@ -1537,23 +1537,33 @@
     solid-styled-components "^0.28.5"
     solid-transition-group "^0.0.12"
 
-"@tonpay/core@^0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@tonpay/core/-/core-0.0.5.tgz#81c195a988d65773cfa234f75992935f7a79eb6d"
-  integrity sha512-Q7557/2e4e7QvS4dpZ0EsChy7eGB0HmfRdv3wt+pcKB+e4k93to6kEmqlYqqs8CeOXiXz3BZBo7d8r8PfchW/g==
+"@tonpay/core@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.npmjs.org/@tonpay/core/-/core-0.0.8.tgz"
+  integrity sha512-qWzxsq8S8o1lwAXa3AsAVPax2nrpFFsH97ZoN92q095ztaBS7BG8Tm5M/ir+P/IFBdZooumJxXTS5AcGz5kFSw==
   dependencies:
     ton "^13.3.0"
     ton-core "^0.48.0"
 
-"@tonpay/react@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@tonpay/react/-/react-0.0.3.tgz#b5765f8f20516294616a461ccbf8377798616c68"
-  integrity sha512-5FbrENpFAzmaGSd4m2+RYwXbhA9EQODO8M4xkw0LzzZx+4quj7+oyKS2jMlYakiFCc3lfkkrDLEjtJlJjrBv8A==
+"@tonpay/react@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.npmjs.org/@tonpay/react/-/react-0.0.5.tgz"
+  integrity sha512-fuORm2WFL4kMwT3t3Jzpj/7i7pnxbZw+43xWFwJ6sH9Wc0UHlwn/yrJyYsoRv83ts7zHkmGSP6CV6oPCOyHX2A==
   dependencies:
-    "@orbs-network/ton-access" "^2.2.2"
-    "@tonpay/core" "^0.0.5"
+    "@orbs-network/ton-access" "^2.3.1"
+    "@tonpay/core" "^0.0.8"
     "@types/react" "^18.0.28"
     react "^18.2.0"
+    ton "^13.3.0"
+    ton-core "^0.48.0"
+
+"@tonpay/sdk@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@tonpay/sdk/-/sdk-0.0.1.tgz#9fcc668ce26f108e60967731123335a67c83e432"
+  integrity sha512-q3k8pXKSuR90NcJAxXoQSuRyKJxa4EFkZ7UEdkSaIrBuBtwavphOYJ7nS3HcbPvOaCILl0XRDHqbUOEBNOVOow==
+  dependencies:
+    "@orbs-network/ton-access" "^2.3.1"
+    "@tonpay/core" "^0.0.8"
     ton "^13.3.0"
     ton-core "^0.48.0"
 
@@ -1614,7 +1624,7 @@
 
 "@types/react@^18.0.28":
   version "18.0.31"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.31.tgz#a69ef8dd7bfa849734d258c793a8fe343a338205"
+  resolved "https://registry.npmjs.org/@types/react/-/react-18.0.31.tgz"
   integrity sha512-EEG67of7DsvRDU6BLLI0p+k1GojDLz9+lZsnCpCRTa/lOokvyPBvp8S5x+A24hME3yyQuIipcP70KJ6H7Qupww==
   dependencies:
     "@types/prop-types" "*"
