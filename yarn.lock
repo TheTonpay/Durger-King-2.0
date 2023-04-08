@@ -1537,41 +1537,33 @@
     solid-styled-components "^0.28.5"
     solid-transition-group "^0.0.12"
 
-"@tonpay/core@^0.0.8":
-  version "0.0.8"
-  resolved "https://registry.npmjs.org/@tonpay/core/-/core-0.0.8.tgz"
-  integrity sha512-qWzxsq8S8o1lwAXa3AsAVPax2nrpFFsH97ZoN92q095ztaBS7BG8Tm5M/ir+P/IFBdZooumJxXTS5AcGz5kFSw==
+"@tonpay/core@^0.2.9":
+  version "0.2.9"
+  resolved "https://registry.yarnpkg.com/@tonpay/core/-/core-0.2.9.tgz#de528b2077245472fb344b17ee43029c679156cf"
+  integrity sha512-98SMzWDFB+tHrcHVlctqkCnQrIBKge25tqYQZ5fFVrr6aBiKVhgTc2N5oJ/t9fvvA/fQxmCH3QrnbT/qyed9sQ==
   dependencies:
     ton "^13.3.0"
     ton-core "^0.48.0"
 
-"@tonpay/core@^0.1.9":
-  version "0.1.9"
-  resolved "https://registry.npmjs.org/@tonpay/core/-/core-0.1.9.tgz"
-  integrity sha512-dd4r3DnghZiRW7o9pUu7OFQV2wGMQgPFiUtx9H4NejfyQzX21My1e8a/uh6jzRzAch3gdgblm4pf/VA9nMhJTA==
-  dependencies:
-    ton "^13.3.0"
-    ton-core "^0.48.0"
-
-"@tonpay/react@^0.0.5":
-  version "0.0.5"
-  resolved "https://registry.npmjs.org/@tonpay/react/-/react-0.0.5.tgz"
-  integrity sha512-fuORm2WFL4kMwT3t3Jzpj/7i7pnxbZw+43xWFwJ6sH9Wc0UHlwn/yrJyYsoRv83ts7zHkmGSP6CV6oPCOyHX2A==
+"@tonpay/react@^0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@tonpay/react/-/react-0.0.7.tgz#e8444a3410ea9db957a8717af19e8ac22a1e8fda"
+  integrity sha512-KJSdw7ymL9CfclpZUWUKIM2g/drFuJrmw8/9UWd7QL0VDsUkmqB9N1eQQA+XLY2/FhRr8w9byc1Oa94VNPBnwA==
   dependencies:
     "@orbs-network/ton-access" "^2.3.1"
-    "@tonpay/core" "^0.0.8"
+    "@tonpay/core" "^0.2.9"
     "@types/react" "^18.0.28"
     react "^18.2.0"
     ton "^13.3.0"
     ton-core "^0.48.0"
 
-"@tonpay/sdk@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.npmjs.org/@tonpay/sdk/-/sdk-0.0.3.tgz"
-  integrity sha512-vA/knbcrHtu+Ma42zyP6XJ/Pw+I+E1INFeW0+pWesRXvQ6jo3aFktrD4sTn43y1kEDVtih4LJsF70MWH2hKoAg==
+"@tonpay/sdk@^0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@tonpay/sdk/-/sdk-0.1.3.tgz#de6a40849c4906026f77c0bc4cff2719b4818bb3"
+  integrity sha512-qmS1O48Kvg0tpISPuqrcNKFVv9fzyl7JSqJjpLkwBEwZIu25gG0fVHfhir2014M9DrwobD2N9NQqzfpm4TwnTQ==
   dependencies:
     "@orbs-network/ton-access" "^2.3.1"
-    "@tonpay/core" "^0.1.9"
+    "@tonpay/core" "^0.2.9"
     ton "^13.3.0"
     ton-core "^0.48.0"
 
