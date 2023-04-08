@@ -33,7 +33,7 @@ export default function CheckoutPage() {
   }, []);
 
   useEffect(() => {
-    if (!sender) return;
+    if (!sender || tonpay) return;
     Tonpay.create("testnet", sender).then((tonpay: Tonpay) => {
       setTonpay(tonpay);
     });

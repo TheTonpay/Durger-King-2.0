@@ -1545,10 +1545,10 @@
     ton "^13.3.0"
     ton-core "^0.48.0"
 
-"@tonpay/core@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@tonpay/core/-/core-0.0.9.tgz#a79aaa3a5d41197cf23ac252f49f4e679d0cd978"
-  integrity sha512-EFHT6sp7oFrRDOeq3+XDsVPuR452kSEDCUjTGmXbqXlUXGieHLm497FWo6+Yx5NGAJ9tPPsRs64oIxdN4Gh4fA==
+"@tonpay/core@^0.1.9":
+  version "0.1.9"
+  resolved "https://registry.npmjs.org/@tonpay/core/-/core-0.1.9.tgz"
+  integrity sha512-dd4r3DnghZiRW7o9pUu7OFQV2wGMQgPFiUtx9H4NejfyQzX21My1e8a/uh6jzRzAch3gdgblm4pf/VA9nMhJTA==
   dependencies:
     ton "^13.3.0"
     ton-core "^0.48.0"
@@ -1565,13 +1565,13 @@
     ton "^13.3.0"
     ton-core "^0.48.0"
 
-"@tonpay/sdk@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@tonpay/sdk/-/sdk-0.0.2.tgz#7a65aada248e5fba813fad09d2b07a8dcaa40a8c"
-  integrity sha512-jUFcPT9F0b1XzsNwD7IbZ2356mRo+Pgvv90MLV7GPDB89pD/0/roPU/oKARV5BUGugSRCkOVpasHsAeX0ToEAw==
+"@tonpay/sdk@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.npmjs.org/@tonpay/sdk/-/sdk-0.0.3.tgz"
+  integrity sha512-vA/knbcrHtu+Ma42zyP6XJ/Pw+I+E1INFeW0+pWesRXvQ6jo3aFktrD4sTn43y1kEDVtih4LJsF70MWH2hKoAg==
   dependencies:
     "@orbs-network/ton-access" "^2.3.1"
-    "@tonpay/core" "^0.0.9"
+    "@tonpay/core" "^0.1.9"
     ton "^13.3.0"
     ton-core "^0.48.0"
 
