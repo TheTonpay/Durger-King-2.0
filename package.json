@@ -29,9 +29,9 @@
     "ton-core": "0.48.0",
     "ton-crypto": "^3.2.0",
     "typescript": "4.9.5",
-    "@orbs-network/ton-access": "^2.2.2",
+    "@orbs-network/ton-access": "^2.3.3",
     "@tonpay/react": "^0.0.7",
-    "@tonpay/sdk": "^0.1.3"
+    "@tonpay/sdk": "^0.1.5"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.0.0",
