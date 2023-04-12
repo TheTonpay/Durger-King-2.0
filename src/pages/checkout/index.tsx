@@ -125,6 +125,7 @@ export default function CheckoutPage() {
           const invoiceAddress = await store.requestPurchase({
             invoiceId,
             amount: paymentAmount,
+            metadata: "",
           });
           setTimeout(() => {
             window.location.href = `https://beta.pay.thetonpay.app/i/${invoiceAddress}`;
