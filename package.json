@@ -30,8 +30,8 @@
     "ton-crypto": "^3.2.0",
     "typescript": "4.9.5",
     "@orbs-network/ton-access": "^2.3.3",
-    "@tonpay/react": "^0.0.7",
-    "@tonpay/sdk": "^0.1.5"
+    "@tonpay/react": "^0.0.8",
+    "@tonpay/sdk": "^0.1.6"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.0.0",

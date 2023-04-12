@@ -1559,41 +1559,33 @@
     solid-styled-components "^0.28.5"
     solid-transition-group "^0.0.12"
 
-"@tonpay/core@^0.2.11":
-  version "0.2.11"
-  resolved "https://registry.yarnpkg.com/@tonpay/core/-/core-0.2.11.tgz#8e923dda513bf34ee4561824010abde4cda1155e"
-  integrity sha512-PBPLn0MU7Ir5foBPm/bMODwDf2HtZd4c4zdluqUaPjUg6CMXDo7k9iV1x1A+eVoiG0kqSbb1sTGvhKWfUWMlWA==
+"@tonpay/core@^0.2.12":
+  version "0.2.12"
+  resolved "https://registry.yarnpkg.com/@tonpay/core/-/core-0.2.12.tgz#356fa0663c5a3e0b58e047543a457e39ab72dfe9"
+  integrity sha512-aH7yl0HTVGlPK7okxAlAlaf5t15kyPUwLGuRclUJWPH4M0Ep7P53EKi04MITdRm/Je0Mb4olaysq4HJVjB828g==
   dependencies:
     ton "^13.3.0"
     ton-core "^0.48.0"
 
-"@tonpay/core@^0.2.9":
-  version "0.2.10"
-  resolved "https://registry.npmjs.org/@tonpay/core/-/core-0.2.10.tgz"
-  integrity sha512-YX1+i38OVgyyZTmY4ss0g96vnMY7gwQqyyaHywpdjTAjmG1ug1j9eP4weIOG7xVH7NP/SOD2agsxKH0QBlMPcw==
-  dependencies:
-    ton "^13.3.0"
-    ton-core "^0.48.0"
-
-"@tonpay/react@^0.0.7":
-  version "0.0.7"
-  resolved "https://registry.npmjs.org/@tonpay/react/-/react-0.0.7.tgz"
-  integrity sha512-KJSdw7ymL9CfclpZUWUKIM2g/drFuJrmw8/9UWd7QL0VDsUkmqB9N1eQQA+XLY2/FhRr8w9byc1Oa94VNPBnwA==
+"@tonpay/react@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@tonpay/react/-/react-0.0.8.tgz#51c2d329f64f7b221c79f5bc9ba938797e94bdaf"
+  integrity sha512-ar7HG9RDWFkHSw37hSaZpcW5PCHru3O6GlsUeeDO8M6I6UasBVhd0UUoZVxGs9EqRJvZx4e/t0jh0pL2PSCaxA==
   dependencies:
     "@orbs-network/ton-access" "^2.3.1"
-    "@tonpay/core" "^0.2.9"
+    "@tonpay/core" "^0.2.12"
     "@types/react" "^18.0.28"
     react "^18.2.0"
     ton "^13.3.0"
     ton-core "^0.48.0"
 
-"@tonpay/sdk@^0.1.5":
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/@tonpay/sdk/-/sdk-0.1.5.tgz#10727079442183a83b3d829c4270ba4b9fa251f1"
-  integrity sha512-ffRAj8uHR76N0gbm5tqK6Pdls4eoM9I7ysN7Q1oyWcw5XPeFi0CvgZhSaczBVnZ/desEWm4etbsH24aNCd778w==
+"@tonpay/sdk@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@tonpay/sdk/-/sdk-0.1.6.tgz#d81739c085e07f686295b470c97a02e5c3efd10d"
+  integrity sha512-4Ti2rYQgKQQUBwE1ZH8QFpSQ4rRG/c5vzR90jLc+12xLJSthwOBi/KNQZGCFKCBmC5PpC+qp5xt4jPdwVHI8/g==
   dependencies:
     "@orbs-network/ton-access" "^2.3.1"
-    "@tonpay/core" "^0.2.11"
+    "@tonpay/core" "^0.2.12"
     ton "^13.3.0"
     ton-core "^0.48.0"
 
