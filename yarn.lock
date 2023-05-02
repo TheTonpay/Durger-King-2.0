@@ -1559,10 +1559,10 @@
     solid-styled-components "^0.28.5"
     solid-transition-group "^0.0.12"
 
-"@tonpay/core@^0.3.12":
-  version "0.3.12"
-  resolved "https://registry.yarnpkg.com/@tonpay/core/-/core-0.3.12.tgz#9d372065340ae8d7ba807fd9e39fc74e0a894179"
-  integrity sha512-Amvcl/0lDuKpJ02HwD3s21HbAhGGP4qmwUkFbJJGmCf9nEO5MiY/lz8BdM5MX2oNr/0nXkHCjPAuQwxccVHRag==
+"@tonpay/core@^0.3.12", "@tonpay/core@^0.3.13":
+  version "0.3.13"
+  resolved "https://registry.yarnpkg.com/@tonpay/core/-/core-0.3.13.tgz#04b870ede0c16997c5a2159b999dc57bd29ae505"
+  integrity sha512-XwSCdGe7Ki7BO8RbDjzg6syK/HtjUCitYPyo6rC46oXN3QytvRKz1nD/WFt8Fbp60u+BJPpkzoDcV2YDS5CuLQ==
   dependencies:
     ton "^13.3.0"
     ton-core "^0.48.0"
@@ -1579,13 +1579,13 @@
     ton "^13.3.0"
     ton-core "^0.48.0"
 
-"@tonpay/sdk@^0.2.7":
-  version "0.2.7"
-  resolved "https://registry.yarnpkg.com/@tonpay/sdk/-/sdk-0.2.7.tgz#0ef6c3307d0079904896418f5b5770843a244f79"
-  integrity sha512-vdPoR1zZxr3lbm0lfggtOT0nBaM5NH76zupkRDXk14Db/w3IntHWd0Z5acRSZnCWnFqzeYTRhBXbkZYlMCyIOQ==
+"@tonpay/sdk@^1.4.9":
+  version "1.4.9"
+  resolved "https://registry.yarnpkg.com/@tonpay/sdk/-/sdk-1.4.9.tgz#29321f1607a0b3ccc844983e491c4fcc442a98a9"
+  integrity sha512-DPdf2qOOqRll2lpuI1U6kdzEz3TgGhXp0yg2z7uhRYKV+KEyiR3hSyzVM6a6oTTNy/pCHhz/H0NYPQjws3G6Lg==
   dependencies:
     "@orbs-network/ton-access" "^2.3.3"
-    "@tonpay/core" "^0.3.12"
+    "@tonpay/core" "^0.3.13"
     ton "^13.3.0"
     ton-core "^0.48.0"
 
@@ -1645,9 +1645,9 @@
     csstype "^3.0.2"
 
 "@types/react@^18.0.28":
-  version "18.0.34"
-  resolved "https://registry.npmjs.org/@types/react/-/react-18.0.34.tgz"
-  integrity sha512-NO1UO8941541CJl1BeOXi8a9dNKFK09Gnru5ZJqkm4Q3/WoQJtHvmwt0VX0SB9YCEwe7TfSSxDuaNmx6H2BAIQ==
+  version "18.0.38"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.38.tgz#02a23bef8848b360a0d1dceef4432c15c21c600c"
+  integrity sha512-ExsidLLSzYj4cvaQjGnQCk4HFfVT9+EZ9XZsQ8Hsrcn8QNgXtpZ3m9vSIC2MWtx7jHictK6wYhQgGh6ic58oOw==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"

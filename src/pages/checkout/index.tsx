@@ -122,13 +122,13 @@ export default function CheckoutPage() {
           const store = tonpay.getStore(
             "EQD4CTLrsCUn2CFQlIhJtRZl7qJnIc76VW3TbDzVAh3ish-j"
           );
-          const invoiceAddress = await store.requestPurchase({
+          const invoice = await store.requestPurchase({
             invoiceId,
             amount: paymentAmount,
             metadata: "",
           });
           setTimeout(() => {
-            window.location.href = `https://beta.pay.thetonpay.app/i/${invoiceAddress}`;
+            window.location.href = `https://beta.pay.thetonpay.app/i/${invoice.address}`;
           }, 10000);
         }}
       >
