@@ -14,7 +14,7 @@ import TonLogo from "@/TonLogo";
 import { useRouter } from "next/router";
 import { useTonConnectUI, useTonWallet } from "@tonconnect/ui-react";
 import { useSender } from "@tonpay/react";
-import { Tonpay } from "@tonpay/sdk";
+import { Currencies, Tonpay } from "@tonpay/sdk";
 
 export default function CheckoutPage() {
   const [tonConnectUI] = useTonConnectUI();
@@ -126,6 +126,7 @@ export default function CheckoutPage() {
             invoiceId,
             amount: paymentAmount,
             metadata: "",
+            currency: Currencies.TON,
           });
           setTimeout(() => {
             window.location.href = `https://beta.pay.thetonpay.app/i/${invoice.address}`;

@@ -1490,7 +1490,7 @@
 
 "@tonconnect/sdk@^2.1.3":
   version "2.1.3"
-  resolved "https://registry.yarnpkg.com/@tonconnect/sdk/-/sdk-2.1.3.tgz#c147361474b074c904722691027fac4ba942693c"
+  resolved "https://registry.npmjs.org/@tonconnect/sdk/-/sdk-2.1.3.tgz"
   integrity sha512-LxHJr96NvGTqj4qSKYPPS/7fMlUpHNyj5bCNlzY5xMW8JmdgPj+jXxm5wEI00xBWy478dbE9ZaBhLMLH1V2wZw==
   dependencies:
     "@tonconnect/isomorphic-eventsource" "^0.0.1"
@@ -1499,31 +1499,39 @@
 
 "@tonconnect/ui-react@^1.0.0-beta.5":
   version "1.0.0-beta.5"
-  resolved "https://registry.yarnpkg.com/@tonconnect/ui-react/-/ui-react-1.0.0-beta.5.tgz#d3c5498fbe093287683cc61520cb8fc79e9d3c4d"
+  resolved "https://registry.npmjs.org/@tonconnect/ui-react/-/ui-react-1.0.0-beta.5.tgz"
   integrity sha512-dGNvLf1LKvMyuUbz37IJ/a8JLdUQ3W7kvlVee0uHslbTLN6Gk2ym7Azeqj2fYqBXoc/8uQgakY+p4Nep72MbsA==
   dependencies:
     "@tonconnect/ui" "^1.0.0-beta.4"
 
 "@tonconnect/ui@^1.0.0-beta.4":
   version "1.0.0-beta.4"
-  resolved "https://registry.yarnpkg.com/@tonconnect/ui/-/ui-1.0.0-beta.4.tgz#75fcd5107e7c76b933897682824ce550d4ad08be"
+  resolved "https://registry.npmjs.org/@tonconnect/ui/-/ui-1.0.0-beta.4.tgz"
   integrity sha512-0IVNotEuh1efPOoOSohGOt8DwnIn/Tj8mhymVlRYkgFbnD4Eonjest8gBnA1/rHxECUImNvSg5EN22OQCZyyVg==
   dependencies:
     "@tonconnect/sdk" "^2.1.3"
     classnames "^2.3.2"
     deepmerge "^4.2.2"
 
-"@tonpay/core@^0.3.12", "@tonpay/core@^0.3.13":
+"@tonpay/core@^0.3.12":
   version "0.3.13"
-  resolved "https://registry.yarnpkg.com/@tonpay/core/-/core-0.3.13.tgz#04b870ede0c16997c5a2159b999dc57bd29ae505"
+  resolved "https://registry.npmjs.org/@tonpay/core/-/core-0.3.13.tgz"
   integrity sha512-XwSCdGe7Ki7BO8RbDjzg6syK/HtjUCitYPyo6rC46oXN3QytvRKz1nD/WFt8Fbp60u+BJPpkzoDcV2YDS5CuLQ==
+  dependencies:
+    ton "^13.3.0"
+    ton-core "^0.48.0"
+
+"@tonpay/core@^0.4.15":
+  version "0.4.15"
+  resolved "https://registry.yarnpkg.com/@tonpay/core/-/core-0.4.15.tgz#3163a292e7d022d9828ebc48550027c725ac2731"
+  integrity sha512-F/D9rSlbTV+N5hVUPL+2Sp8dWhdb9sdEFUpmW2c6IU649TLr0Tg34o3WMaL830wVGndQEhUl7HLCPoezfdP14w==
   dependencies:
     ton "^13.3.0"
     ton-core "^0.48.0"
 
 "@tonpay/react@^0.1.8":
   version "0.1.8"
-  resolved "https://registry.yarnpkg.com/@tonpay/react/-/react-0.1.8.tgz#1c37ba63c735f56a940b45128fdf35dd360a360d"
+  resolved "https://registry.npmjs.org/@tonpay/react/-/react-0.1.8.tgz"
   integrity sha512-92N9dp4Jc2s9bnINF/2+9abf4PhnuuhDCAwyM2xVC+OI5O8eoFZS/vjk1v6M3FsT6qHJOjMAIWa8cq2wMWoP8w==
   dependencies:
     "@orbs-network/ton-access" "^2.3.3"
@@ -1533,13 +1541,13 @@
     ton "^13.3.0"
     ton-core "^0.48.0"
 
-"@tonpay/sdk@^1.4.9":
-  version "1.4.9"
-  resolved "https://registry.yarnpkg.com/@tonpay/sdk/-/sdk-1.4.9.tgz#29321f1607a0b3ccc844983e491c4fcc442a98a9"
-  integrity sha512-DPdf2qOOqRll2lpuI1U6kdzEz3TgGhXp0yg2z7uhRYKV+KEyiR3hSyzVM6a6oTTNy/pCHhz/H0NYPQjws3G6Lg==
+"@tonpay/sdk@^2.4.9":
+  version "2.4.9"
+  resolved "https://registry.yarnpkg.com/@tonpay/sdk/-/sdk-2.4.9.tgz#c57f3c73c645f1e7cc9649130d1dbad80861312c"
+  integrity sha512-DnYbqUyQhVmnAfdVKRgqhHM6T7Wo5nQiehqoe/ugMjmS7sbEbu5ScWSd/AIXtm52JfbLXawfPtNosBcwaNSVAQ==
   dependencies:
     "@orbs-network/ton-access" "^2.3.3"
-    "@tonpay/core" "^0.3.13"
+    "@tonpay/core" "^0.4.15"
     ton "^13.3.0"
     ton-core "^0.48.0"
 
@@ -1600,7 +1608,7 @@
 
 "@types/react@^18.0.28":
   version "18.0.38"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.38.tgz#02a23bef8848b360a0d1dceef4432c15c21c600c"
+  resolved "https://registry.npmjs.org/@types/react/-/react-18.0.38.tgz"
   integrity sha512-ExsidLLSzYj4cvaQjGnQCk4HFfVT9+EZ9XZsQ8Hsrcn8QNgXtpZ3m9vSIC2MWtx7jHictK6wYhQgGh6ic58oOw==
   dependencies:
     "@types/prop-types" "*"
